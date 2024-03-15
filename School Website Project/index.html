@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+
+<head>
+    <title>Login page</title>
+    <link rel="stylesheet" type="text/css" href="style1.css">
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div id="cm-image">
+        <img src="./cm&min1.png" alt="Yogi ji" style="float:right"></h1>
+    </div>
+    <figure align="center">
+        <img src="up_logo_n-removebg-preview.png" alt="logo" style="float: left;">
+        <h1>राजकीय आश्रम पद्धति विद्यालय</h1>
+        <figcaption>
+            <h3>काँधनी-इटावा</h3>
+            <h4>स्थापना: 21 जनवरी 2011 </h4>
+        </figcaption>
+
+
+
+        <!-- <img src="new namtri.png" alt="Mantri ji"> -->
+
+
+    </figure>
+
+
+
+    <div class="Container">
+        <div class="box">
+            <h1 id="title">Sign up</h1>
+
+            <form id="signupForm" method="post" action="db.php" onsubmit="return validateForm()">
+                <div class="input-group">
+                    <div class="input-field" id="nameField">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="Name" name="name" required>
+                    </div>
+                    <div class="input-field" id="nameField1">
+                        <i class="fa-solid fa-mobile"></i>
+                        <input type="tel" placeholder="Mobile Number" name="mobile">
+                    </div>
+                    <div class="input-field">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" placeholder="Email" name="email" required>
+                    </div>
+                    <div class="input-field">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" placeholder="Password" name="password" required>
+                    </div>
+
+                    <p>Forget Password<a href=""></a></p>
+                </div>
+                <div class="btn-field">
+                    <button type="submit" id="signupBtn" name="submit">Sign up</button>
+                    <button type="button" id="guestBtn"><a href="./home.html" target="_blank">Guest user</a></button>
+                    <button type="button" id="alreadyusrbtn" style="color: white;"><a href="./signin.html"
+                            target="_blank" style="color: white; text-decoration: none;">already user</a></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            var name = document.forms["signupForm"]["name"].value;
+            var mobile = document.forms["signupForm"]["mobile"].value;
+            var email = document.forms["signupForm"]["email"].value;
+            var password = document.forms["signupForm"]["password"].value;
+
+            // Name validation
+            if (name.length < 3) {
+                alert("Name must be at least 3 characters");
+                return false;
+            }
+
+            // Mobile number validation
+            if (mobile.length < 10 || mobile.length > 13 || isNaN(mobile)) {
+                alert("Mobile number must be between 10 and 13 digits");
+                return false;
+            }
+
+            // Email validation (basic format check)
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert("Invalid email format");
+                return false;
+            }
+
+            // Password validation
+            var passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{5,15}$/;
+            if (!passwordRegex.test(password)) {
+                alert("Password must contain at least one alphabet, one number, one symbol, and be between 5 and 15 characters");
+                return false;
+            }
+
+            return true; // Submit the form if all validations pass
+        }
+    </script>
+
+
+
+
+    <footer>
+        <h2>&copy; ATS kandhani-Etawah 2024</h2>
+    </footer>
+
+
+
+
+</body>
+
+</html>
